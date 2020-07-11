@@ -15,7 +15,6 @@ namespace VidlySite.Models
         [StringLength(255)]
         public string Name { get; set; }
 
-        [Required]
         public Genre Genre { get; set; }
 
         [Required]
