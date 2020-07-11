@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -21,12 +22,14 @@ namespace VidlySite.Models
         public byte GenreId { get; set; }
 
         [Required]
+        [DisplayName("Release Date")]
         public DateTime ReleaseDate { get; set; }
 
         [Required]
         public DateTime DateAdded { get; set; }
 
         [Required]
+        [DisplayName("Number in Stock")]
         public int NumberInStock { get; set; }
     }
 }
