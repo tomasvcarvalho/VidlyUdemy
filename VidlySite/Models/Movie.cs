@@ -18,6 +18,7 @@ namespace VidlySite.Models
         public Genre Genre { get; set; }
 
         [Required]
+        [DisplayName("Genre")]
         public byte GenreId { get; set; }
 
         [Required]
@@ -29,6 +30,7 @@ namespace VidlySite.Models
 
         [Required]
         [DisplayName("Number in Stock")]
+        [Range(1,20)]
         public int NumberInStock { get; set; }
     }
 }
