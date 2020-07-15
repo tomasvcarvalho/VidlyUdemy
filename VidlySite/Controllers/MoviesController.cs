@@ -17,7 +17,7 @@ namespace VidlySite.Controllers
             _context = new ApplicationDbContext();
         }
 
-        protected override void Dispose(bool disposing) 
+        protected override void Dispose(bool disposing)
         {
             _context.Dispose();
         }
@@ -27,7 +27,6 @@ namespace VidlySite.Controllers
             var genres = _context.Genres.ToList();
             var viewModel = new MovieFormViewModel()
             {
-                Movie = new Movie(),
                 Genres = genres
             };
             return View("MovieForm", viewModel);
@@ -39,9 +38,8 @@ namespace VidlySite.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = new MovieFormViewModel
+                var viewModel = new MovieFormViewModel(movie)
                 {
-                    Movie = movie,
                     Genres = _context.Genres.ToList()
                 };
 
@@ -90,7 +88,7 @@ namespace VidlySite.Controllers
                 new Customer { Name = "Customer 1" },
                 new Customer { Name = "Customer 2" }
             };
-            var viewModel  = new RandomMovieViewModel() 
+            var viewModel = new RandomMovieViewModel()
             {
                 Movie = movie,
                 Customers = customers
@@ -130,9 +128,8 @@ namespace VidlySite.Controllers
                 return HttpNotFound();
             }
 
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
                 Genres = _context.Genres.ToList()
             };
 
