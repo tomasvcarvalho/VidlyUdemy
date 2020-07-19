@@ -8,6 +8,7 @@ using VidlySite.Models;
 
 namespace VidlySite.Controllers.Api
 {
+    
     public class MoviesController : ApiController
     {
         private ApplicationDbContext _context;
@@ -47,6 +48,7 @@ namespace VidlySite.Controllers.Api
         }
 
         // POST /api/movies/1
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpPost]
         public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
@@ -63,6 +65,7 @@ namespace VidlySite.Controllers.Api
         }
 
         // PUT /api/movies/1
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpPut]
         public IHttpActionResult UpdateMovie(int id, MovieDto movieDto) 
         {
@@ -82,6 +85,7 @@ namespace VidlySite.Controllers.Api
         }
 
         // DELETE /api/movie/1
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpDelete]
         public IHttpActionResult DeleteMovie(int id) 
         {
